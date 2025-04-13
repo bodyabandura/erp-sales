@@ -2,26 +2,76 @@
   "name": "erp-sales",
   "version": "0.1.0",
   "private": true,
+  "main": "public/electron.js",
   "dependencies": {
-    "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.3.0",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.126",
-    "@types/react": "^19.1.0",
-    "@types/react-dom": "^19.1.2",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "@types/node": "^16.18.91",
+    "@types/react": "^18.2.67",
+    "@types/react-dom": "^18.2.22",
+    "dotenv": "^16.5.0",
+    "electron-is-dev": "^2.0.0",
+    "electron-store": "^8.1.0",
+    "mysql2": "^3.14.0",
+    "react": "^18.2.0",
+    "react-arborist": "^3.4.3",
+    "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "npm run electron-dev",
+    "react-start": "react-app-rewired start",
+    "react-build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-scripts eject",
+    "init-db": "node public/init-db.js",
+    "check-db": "node public/check-db.js",
+    "fix-price-field": "node public/fix-price-field.js",
+    "fix-orders-table": "node public/fix-orders-table.js",
+    "fix-order-items-table": "node public/fix-order-items-table.js",
+    "electron-dev": "concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && electron .\"",
+    "copy-files": "cp .env build/ && cp public/electron-db.js build/",
+    "electron-pack": "npm run copy-files && electron-builder --win portable --config.win.artifactName=\"erp-sales.exe\" --config.asar=false --config.win.signAndEditExecutable=false",
+    "dev-build": "npm run react-build && npm run copy-files && electron .",
+    "preelectron-pack": "npm run react-build",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "build": {
+    "appId": "com.example.erp-sales",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "extraFiles": [
+      {
+        "from": "public/electron-db.js",
+        "to": "resources/electron-db.js"
+      },
+      {
+        "from": ".env",
+        "to": "resources/.env"
+      }
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "win": {
+      "target": "portable",
+      "icon": "build/icon.ico"
+    },
+    "extraResources": [
+      {
+        "from": "./src/assets/",
+        "to": "assets",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ]
   },
   "eslintConfig": {
     "extends": [
@@ -40,5 +90,26 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "assert": "^2.1.0",
+    "browserify-zlib": "^0.2.0",
+    "buffer": "^6.0.3",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "crypto-browserify": "^3.12.1",
+    "electron": "^29.1.4",
+    "electron-builder": "^24.13.3",
+    "https-browserify": "^1.0.0",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
+    "react-app-rewired": "^2.2.1",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "timers-browserify": "^2.0.12",
+    "url": "^0.11.4",
+    "vm-browserify": "^1.1.2",
+    "wait-on": "^7.2.0"
   }
 }

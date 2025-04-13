@@ -1,0 +1,71 @@
+/* Windows-style container */
+.window-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #0078d7;
+  border-radius: 1px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f0f0f0;
+  margin: 10px;
+  overflow: hidden;
+}
+
+/* Window titlebar */
+.window-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to right, #0078d7, #00a2ed);
+  color: white;
+  padding: 5px 8px;
+  user-select: none;
+}
+
+.window-title {
+  font-size: 14px;
+  font-weight: 400;
+  flex-grow: 1;
+  margin-left: 5px;
+}
+
+.window-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+
+/* Window control buttons (minimize, maximize, close) */
+.window-controls {
+  display: flex;
+  gap: 2px;
+}
+
+.window-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: none;
+  color: white;
+  background-color: transparent;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.window-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.window-button.close:hover {
+  background-color: #e81123;
+}
+
+/* Content area */
+.window-content {
+  flex-grow: 1;
+  background-color: #f0f0f0;
+  padding: 0;
+  overflow: auto;
+}

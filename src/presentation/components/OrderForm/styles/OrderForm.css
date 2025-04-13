@@ -1,0 +1,375 @@
+/* Legacy ERP Order Form Styles */
+.order-form {
+  font-family: PMingLiU, MingLiU, "Microsoft JhengHei", "Microsoft YaHei", Arial,
+    sans-serif;
+  color: #000;
+  max-width: 100%;
+  background-color: #f0f0f0;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #a0a0a0;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Form header */
+.form-header {
+  border-bottom: 1px solid #a0a0a0;
+  padding: 2px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-logo {
+  color: #0000cc;
+  font-size: 16px;
+}
+
+.header-title {
+  font-weight: bold;
+}
+
+.header-date,
+.header-time,
+.header-user,
+.header-server {
+  font-size: 11px;
+}
+
+.header-right {
+  display: flex;
+  gap: 2px;
+}
+
+.window-control {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  line-height: 16px;
+  border: 1px solid #7f9db9;
+  cursor: pointer;
+}
+
+.form-tabs {
+  display: flex;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #a0a0a0;
+  padding: 2px 0 0 5px;
+}
+
+.form-tab {
+  display: flex;
+  align-items: center;
+  padding: 2px 10px;
+  background-color: #d7e4f2;
+  border: 1px solid #a0a0a0;
+  border-bottom: none;
+  border-radius: 3px 3px 0 0;
+  font-size: 12px;
+  color: #000080;
+  position: relative;
+  top: 1px;
+}
+
+.form-tab.active {
+  background-color: #ffffff;
+}
+
+.tab-icon {
+  margin-right: 4px;
+  font-size: 14px;
+}
+
+.tab-text {
+  font-weight: bold;
+}
+
+/* Form body */
+.form-body {
+  background-color: #fff;
+  padding: 2px;
+}
+
+/* Form grid layout - table structure like in Legacy ERP */
+.form-grid-container {
+  margin-bottom: 2px;
+}
+
+.form-grid-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.form-grid-table td {
+  padding: 1px 2px;
+}
+
+.form-label {
+  text-align: right;
+  white-space: nowrap;
+  font-size: 12px;
+  color: #000;
+  padding-right: 2px;
+}
+
+.form-input {
+  padding: 1px 2px;
+  border: 1px solid #7f9db9;
+  font-size: 12px;
+  background-color: #fff;
+  height: 18px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-input-wide {
+  width: 100%;
+}
+
+.form-input:disabled {
+  background-color: #f0f0f0;
+  border-color: #ccc;
+  color: #555;
+}
+
+.form-input:focus {
+  border-color: #66afe9;
+  outline: 0;
+  box-shadow: 0 0 3px rgba(102, 175, 233, 0.5);
+}
+
+.form-select {
+  padding: 0;
+  border: 1px solid #7f9db9;
+  font-size: 12px;
+  background-color: #fff;
+  height: 18px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Main form container configuration for displaying taxes on the right */
+.form-main-container {
+  display: flex;
+  width: 100%;
+}
+
+.form-grid-container {
+  flex-grow: 1;
+  margin-bottom: 2px;
+}
+
+/* Styles for tax-type-container */
+.tax-type-container {
+  margin-left: 5px;
+  border: 1px solid #7f9db9;
+  padding: 3px 10px;
+  min-width: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tax-type-label {
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.tax-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.tax-option {
+  display: flex;
+  align-items: center;
+  margin: 2px 0;
+  flex-direction: row;
+  white-space: nowrap;
+}
+
+.tax-option input[type="radio"] {
+  margin: 0 2px 0 0;
+}
+
+.tax-option label {
+  font-size: 12px;
+  display: inline-block;
+}
+
+/* Order details section */
+.detail-section {
+  margin-top: 2px;
+  border: 1px solid #a0a0a0;
+}
+
+.detail-header {
+  padding: 2px 5px;
+  color: #800000;
+  font-size: 12px;
+}
+
+/* Items table */
+.items-table {
+  width: 100%;
+  border: none;
+}
+
+.items-table table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.items-table th {
+  background-color: #b0d4d8;
+  border: 1px solid #a0a0a0;
+  padding: 2px 3px;
+  font-weight: normal;
+  font-size: 12px;
+  text-align: center;
+  color: #000;
+  height: 20px;
+}
+
+.items-table td {
+  border: 1px solid #a0a0a0;
+  padding: 1px 2px;
+  font-size: 12px;
+  vertical-align: middle;
+  height: 22px;
+  background-color: #fff;
+}
+
+.items-table tr:nth-child(even) td {
+  background-color: #f3f3f3;
+}
+
+.items-table tr:hover td {
+  background-color: #e8f1fa;
+}
+
+.numeric {
+  text-align: right;
+}
+
+.items-table-buttons {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 5px;
+}
+
+/* Form controls and navigation buttons */
+.form-controls {
+  border-top: 1px solid #a0a0a0;
+}
+
+.form-nav-buttons {
+  display: flex;
+}
+
+.nav-button {
+  padding: 2px 5px;
+  border: 1px solid #7f9db9;
+  font-size: 14px;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-button:hover {
+  background-color: #d7e4f2;
+}
+
+.nav-button.disabled {
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none;
+}
+
+.nav-button.disabled:hover {
+  background-color: inherit;
+}
+
+.btn-add {
+  padding: 1px 5px;
+  border: 1px solid #7f9db9;
+  background-color: #e7e7e7;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btn-add:hover {
+  background-color: #d7e4f2;
+}
+
+.btn-remove {
+  background-color: #e7e7e7;
+  border: 1px solid #7f9db9;
+  padding: 0px 4px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.btn-remove:hover {
+  background-color: #ffe0e0;
+}
+
+.form-status {
+  font-size: 12px;
+  padding: 2px 5px;
+  border-top: 1px solid #a0a0a0;
+  display: flex;
+  justify-content: space-between;
+  background-color: #ccdcf8;
+}
+
+.status-message {
+  color: #555;
+}
+
+.form-section-header .translation {
+  color: #666;
+  font-size: 85%;
+  margin-left: 5px;
+  font-style: italic;
+  font-weight: normal;
+}
+
+.form-label .translation {
+  color: #666;
+  font-size: 85%;
+  font-style: italic;
+  font-weight: normal;
+}
+
+th .translation {
+  display: block;
+  font-size: 80%;
+  font-style: italic;
+  color: #666;
+}
+
+.summary-label .translation {
+  display: block;
+  font-size: 85%;
+  margin-left: 0;
+  padding-left: 0;
+}
